@@ -10,6 +10,7 @@ class Panel: public sf::Drawable{
         Panel(int x, int y);
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
         void onClick();
+        ~Panel();
     private:
         Button *buttons[10];
         int x;
