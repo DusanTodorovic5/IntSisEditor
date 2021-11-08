@@ -19,6 +19,10 @@ Note: The editor doesnt fix the grid in case it is not rectangle shape
 https://user-images.githubusercontent.com/79877752/140803347-73e0a7bd-a97f-4e4c-a61b-3fc0bee0a5d2.mp4
 
 
+## Linux dependency
+
+Maybe SFML needs to be installed. Maybe not...
+
 
 
 
