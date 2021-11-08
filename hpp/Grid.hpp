@@ -6,7 +6,6 @@ class Grid : public sf::Drawable{
         Grid(int x=0, int y=0);
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
         void onClick();
-        void _export();
         ~Grid();
         int getWidth() const;
         Field* at(int i, int j);
