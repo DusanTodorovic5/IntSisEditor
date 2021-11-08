@@ -15,8 +15,8 @@ class ExportButton : public Button{
         void onClick(){
             std::ofstream file("map.txt");
             Grid* grid = Manager::getManager()->getGrid();
-            file << grid->getAgentPos().first << "," << grid->getAgentPos().second << std::endl;
-            file << grid->getGoalPos().first << "," << grid->getGoalPos().second << std::endl;
+            file << grid->getAgentPos().second << "," << grid->getAgentPos().first << std::endl;
+            file << grid->getGoalPos().second << "," << grid->getGoalPos().first << std::endl;
             for (int i = 0; i < 15; i++)
             {
                 for (int j = 0; j < 15; j++)
