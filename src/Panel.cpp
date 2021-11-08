@@ -24,3 +24,8 @@ void Panel::draw(sf::RenderTarget& target, sf::RenderStates states) const{
         target.draw(*buttons[i],states);
     }
 }
+Panel::~Panel(){
+    for (int i=0;i<10;i++){
+        delete buttons[i];
+    }
+}
