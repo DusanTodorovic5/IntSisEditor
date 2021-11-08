@@ -43,12 +43,12 @@ void Grid::onClick(){
     grid[x][y]->onClick();
 }
 
-void Grid::_export(){
-
-}
-
 Grid::~Grid(){
-
+    for (int i=0;i<15;i++){
+        for (int j=0;j<15;j++){
+            delete grid[i][j];
+        }
+    }
 }
 int Grid::getWidth() const{
     return x+15*FIELD_SIZE;
