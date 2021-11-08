@@ -2,7 +2,7 @@
 #define BUTTON_CLASS
 #include <SFML/Graphics.hpp>
 #include <string>
-#include <Manager.hpp>
+#include "Manager.hpp"
 #include <iostream>
 class Button: public sf::Drawable{
     public:
