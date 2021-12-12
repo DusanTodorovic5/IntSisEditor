@@ -6,11 +6,11 @@
 
 class TextHolder : public Node{
     public: 
-        TextHolder(int x, int y){
+        TextHolder(int x, int y, std::string string, int size = 120){
             text.setFont(Manager::getManager()->getFont());
-            text.setCharacterSize(120);
+            text.setCharacterSize(size);
             text.setFillColor(sf::Color::White);
-            text.setString("Izaberite Editor");
+            text.setString(string);
             text.setPosition(sf::Vector2f(x - text.getGlobalBounds().width/2,y - text.getGlobalBounds().height/2));
         }
         virtual bool checkHovered(sf::Vector2i vector) const{
@@ -29,6 +29,10 @@ class TextHolder : public Node{
         }
         virtual void clicked(){
 
+        }
+        void setSize(int i){
+            text.setCharacterSize(i);
+            text.setPosition(sf::Vector2f(x - text.getGlobalBounds().width/2,y - text.getGlobalBounds().height/2));
         }
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const{
             target.draw(text,states);
