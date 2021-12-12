@@ -13,8 +13,10 @@ int main()
 
     Scene* startScene = new Scene();
 
-    TextHolder* text = new TextHolder(600,300);
+    TextHolder* text = new TextHolder(600,300, "Izaberite Editor");
+    TextHolder* text2 = new TextHolder(600,860, "Pretisnite ESC da se vratite na ovaj ekran",50);
     startScene->add(text);
+    startScene->add(text2);
     SceneButton* b_dz1 = new SceneButton(480,500,"Prvi domaci","dz1");
     SceneButton* b_dz2 = new SceneButton(480,700,"Drugi domaci","dz2");
     startScene->add(b_dz1);
