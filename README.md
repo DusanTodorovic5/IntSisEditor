@@ -1,11 +1,12 @@
 # Editor for class Intelligent systems
 
-Features basic grid editor and map generator for pathfinding project.
+Features basic grid editor and map generator.
+You can choose which homework to edit.
 
 ## Features
 
 Built in C++ and SFML.
-Implemented custom GUI with O(1) complexity
+Implemented custom GUI with hover and click feature
 
 ## Usage
 
