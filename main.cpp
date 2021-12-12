@@ -1,16 +1,42 @@
 #include "Grid.hpp"
 #include "Button.hpp"
 #include "Panel.hpp"
+#include "Panel2.hpp"
+#include "SceneManager.hpp"
+#include "Scene.hpp"
+#include "TextHolder.hpp"
+#include "SceneButton.hpp"
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1200, 960), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-    Grid grid(0,0);
-    Panel panel(960,0);
+    sf::RenderWindow window(sf::VideoMode(1200, 960), "Inteligentni sistemi editor");
+
+
+    Scene* startScene = new Scene();
+
+    TextHolder* text = new TextHolder(600,300);
+    startScene->add(text);
+    SceneButton* b_dz1 = new SceneButton(480,500,"Prvi domaci","dz1");
+    SceneButton* b_dz2 = new SceneButton(480,700,"Drugi domaci","dz2");
+    startScene->add(b_dz1);
+    startScene->add(b_dz2);
+    Scene* scene = new Scene();
+
+    Grid* grid = new Grid(0,0,scene);
+    Panel* panel = new Panel(960,0,scene);
     Manager::getManager()->setWindow(&window);
-    Manager::getManager()->addGrid(&grid);
+    
+
+    Scene* scene2 = new Scene();
+    Grid* grid2 = new Grid(0,0,scene2);
+    Panel2* panel2 = new Panel2(960,0,scene2);
+
     window.setFramerateLimit(60);
+    SceneManager::manager()->addScene("start",startScene);
+    SceneManager::manager()->addScene("dz1",scene);
+    SceneManager::manager()->addScene("dz2",scene2);
+    SceneManager::manager()->switchScene("start");
+
+    bool f = false;
     while (window.isOpen())
     {
         sf::Event event;
@@ -20,21 +46,19 @@ int main()
                 window.close();
 
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).y < window.getSize().y){
-                if (sf::Mouse::getPosition(window).x < grid.getWidth() && sf::Mouse::getPosition(window).y > 0)
-                    grid.onClick();
-                if (sf::Mouse::getPosition(window).x > 960 && sf::Mouse::getPosition(window).y > 0)
-                    panel.onClick();
+                SceneManager::manager()->clicked();
             }
-            
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+                SceneManager::manager()->switchScene("start");
+            }
         }
-
+        if (sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).y < window.getSize().y){
+            SceneManager::manager()->mouseMoved(sf::Mouse::getPosition(window));
+        }
         window.clear();
-        window.draw(shape);
-        window.draw(grid);
-        window.draw(panel);
-        window.draw(*(Manager::getManager()));
+        window.draw(*(SceneManager::manager()));
         window.display();
     }
-
+    delete SceneManager::manager();
     return 0;
 }
