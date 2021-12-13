@@ -17,7 +17,11 @@ Note: The editor doesnt fix the grid in case it is not rectangle shape
 ## Showcase
 
 
-https://user-images.githubusercontent.com/79877752/140803347-73e0a7bd-a97f-4e4c-a61b-3fc0bee0a5d2.mp4
+
+
+https://user-images.githubusercontent.com/79877752/145783211-57b968cb-7589-4583-951e-d1b2f18ff613.mp4
+
+
 
 
 ## Linux dependency
